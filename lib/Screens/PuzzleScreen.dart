@@ -98,10 +98,7 @@ class _PuzzleScreenState extends State<PuzzleScreen> {
                                           : Colors.white,
                                   border: Border.all(color: Colors.grey)),
                               child: Center(
-                                  child: Text(rowIndex.toString() +
-                                      "," +
-                                      colIndex.toString() +
-                                      "\n" +
+                                  child: Text(
                                       twoDList[rowIndex][colIndex]
                                           .item
                                           .toString()))),
@@ -136,8 +133,10 @@ class _PuzzleScreenState extends State<PuzzleScreen> {
   }
 
   generate(int _rowIndexIni, int _colIndexIni) {
-    for (int _rowIndex = _rowIndexIni; _rowIndex < row; _rowIndex++) {
-      for (int _colIndex = _colIndexIni; _colIndex < col; _colIndex++) {
+    debugPrint(_rowIndexIni.toString()+","+_colIndexIni.toString());
+    addTree(_rowIndexIni, _colIndexIni);
+    for (int _rowIndex = 0; _rowIndex < row; _rowIndex++) {
+      for (int _colIndex = 0; _colIndex < col; _colIndex++) {
         if (twoDList[_rowIndex][_colIndex].item == null) {
           addTree(_rowIndex, _colIndex);
         }
